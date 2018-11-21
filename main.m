@@ -3,6 +3,7 @@ load("IS_dataset.mat");
 %testNoise(spectra);
 
 
+
 % FEATURE EXTRACTION
 
 % per l'estrazione delle features dobbiamo dividere lo spettro in k range e

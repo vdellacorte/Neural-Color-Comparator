@@ -1,6 +1,6 @@
-function [noisySpectrum] = addNoise(spectra, index, k, seed)
+function [noisySpectrum] = addNoise(spectra, index, k)
 
-    rng(seed);
+
     noisySpectrum = spectra(:,index);
     for i = 1:k
         
