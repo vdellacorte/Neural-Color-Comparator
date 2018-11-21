@@ -5,5 +5,4 @@ function [] = printRGBfromSpectrum(spectrum,titolo, windowPosition)
     fig.OuterPosition = windowPosition;
     rect = rectangle('FaceColor', rgb);
     title(titolo);
-
 end
