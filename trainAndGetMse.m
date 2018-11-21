@@ -1,6 +1,6 @@
 function [mse] = trainAndGetMse(features, initialDistance)
     hiddenLayerSize = 10;
-    %net = fitnet(hiddenLayerSize);
+    net = fitnet(hiddenLayerSize);
     
     
 end

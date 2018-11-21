@@ -1,6 +1,7 @@
 clear();
 load("IS_dataset.mat");
-testNoise(spectra);
+%testNoise(spectra);
+
 
 % FEATURE EXTRACTION
 
