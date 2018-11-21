@@ -2,8 +2,7 @@ clear();
 load("IS_dataset.mat");
 %testNoise(spectra);
 
-
-
+    
 % FEATURE EXTRACTION
 
 % per l'estrazione delle features dobbiamo dividere lo spettro in k range e
@@ -11,6 +10,8 @@ load("IS_dataset.mat");
 % ecc.) che meglio approssimano ciascun range. 
 
 % FEATURE SELECTION
+
+%[fs, history] = sequentialfs(@trainAndGetMse, features, distance', 'cv', 'none', 'opt', opt, 'nfeatures', 12);
 
 %sequentialfs prende in ingresso la rete neurale, le feature estratte e ne
 %seleziona le n migliori. Queste feature selezionate andranno in input alla

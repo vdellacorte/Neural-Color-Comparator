@@ -1,8 +1,8 @@
-function [spectraCopies] = createCopies(spectra, numCopies, seed)
+function [spectraCopies] = createCopies(spectra, numCopies)
     
 spectraCopies = zeros(421, 1269*numCopies);
 numRangesForNoise = 3;
-rng(seed);
+rng(27);
 
 for i = 1:1269
     for j = 1:numCopies

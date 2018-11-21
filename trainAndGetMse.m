@@ -1,4 +1,4 @@
-function [mse] = trainAndGetMse(features, initialDistance)
+function [mse] = trainAndGetMse(features, realDistance)
     hiddenLayerSize = 10;
     net = fitnet(hiddenLayerSize);
     
