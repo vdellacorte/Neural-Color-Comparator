@@ -3,29 +3,21 @@ load("IS_dataset.mat");
 
 numCopies = 5;
 
-extendedSpectra = zeros(421, 1269*numCopies);
+extendedSpectra = extendMasters(spectra, numCopies);
 
-for i= 1:1269
-   
-    for j = 1:numCopies
-        
-        extendedSpectra
-    end
-    
-end
+noisedCopies = createCopies(spectra, numCopies);
+distances = createDistances(extendedSpectra, noisedCopies, numCopies);
+
+featuresMaster = computeFeatures(extendedSpectra, 3, numCopies);
+featuresCopies = computeFeatures(noisedCopies, 3, numCopies);
+
+features = zeros(30, 1269*numCopies);
+features(1:15, :) = featuresMaster;
+features(16:30, :) = featuresCopies;
+
+opt = statset('display', 'iter');
+%[fs, history] = sequentialfs(@fs_trainAndGetMse, features', distances', 'cv', 'none', 'opt', opt, 'nfeatures', 16);
 
 
-    
-% FEATURE EXTRACTION
+[mse,regr] = trainAndGetMse(features, distances);
 
-% per l'estrazione delle features dobbiamo dividere lo spettro in k range e
-% per ciascun range trovare degli indicatori (mean, variance, skewness
-% ecc.) che meglio approssimano ciascun range. 
-
-% FEATURE SELECTION
-
-%[fs, history] = sequentialfs(@trainAndGetMse, features, distance', 'cv', 'none', 'opt', opt, 'nfeatures', 12);
-
-%sequentialfs prende in ingresso la rete neurale, le feature estratte e ne
-%seleziona le n migliori. Queste feature selezionate andranno in input alla
-%rete neurale
