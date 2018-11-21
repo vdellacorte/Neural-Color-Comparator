@@ -1,6 +1,19 @@
 clear();
 load("IS_dataset.mat");
-%testNoise(spectra);
+
+numCopies = 5;
+
+extendedSpectra = zeros(421, 1269*numCopies);
+
+for i= 1:1269
+   
+    for j = 1:numCopies
+        
+        extendedSpectra
+    end
+    
+end
+
 
     
 % FEATURE EXTRACTION
