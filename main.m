@@ -2,7 +2,7 @@ clear();
 load("IS_dataset.mat");
 
 numCopies = 5;
-k = 4;
+k = 3;
 
 extendedSpectra = extendMasters(spectra, numCopies);
 
@@ -17,7 +17,7 @@ features(1:(k*5), :) = featuresMaster;
 features(((k*5)+1):(k*10), :) = featuresCopies;
 
 opt = statset('display', 'iter');
-[fs, history] = sequentialfs(@fs_trainAndGetMse, features', distances', 'cv', 'none', 'opt', opt, 'nfeatures', 10);
+[fs, history] = sequentialfs(@fs_trainAndGetMse, features', distances', 'cv', 'none', 'opt', opt, 'nfeatures', 16);
 
 %selectedFeatures = features( boolean([0   1   0   0   0   0   1   0   0   1   0   1   0   0   1   0   1   0   0   0   0   1   0   1   1   0   0   0   1   0]), :);
 

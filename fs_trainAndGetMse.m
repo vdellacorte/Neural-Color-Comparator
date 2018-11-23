@@ -1,5 +1,5 @@
 function [mse] = fs_trainAndGetMse(features, realDistance)
-    hiddenLayerSize = 10;
+    hiddenLayerSize = 8;
     net = fitnet(hiddenLayerSize);
     net.trainParam.showWindow = false;
     features = features';
