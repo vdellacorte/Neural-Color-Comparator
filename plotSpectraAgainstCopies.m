@@ -1,4 +1,4 @@
-function [] = plotSpectraAgainstCopies(spectra, copy, index)
+function [] = plotSpectraAgainstCopies(spectra, copy, index, numCopies)
 
  figure('Position', [100, 100, 1000, 400]);
  
@@ -6,7 +6,7 @@ function [] = plotSpectraAgainstCopies(spectra, copy, index)
    
  hold on;
  for i=1:5
-    plot(copy(:,index+i));
+    plot(copy(:,(index-1)*numCopies + i));
  end
  
  ylim([0 1])

@@ -8,7 +8,7 @@ extendedSpectra = extendMasters(spectra, numCopies);
 
 noisedCopies = createCopies(spectra, numCopies);
 
-plotSpectraAgainstCopies(spectra, noisedCopies, 5);
+plotSpectraAgainstCopies(spectra, noisedCopies, 120, numCopies);
 
 %distances = createDistances(extendedSpectra, noisedCopies, numCopies);
 

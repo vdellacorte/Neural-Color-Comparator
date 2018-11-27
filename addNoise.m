@@ -2,6 +2,7 @@ function [noisySpectrum] = addNoise(spectra, index, k)
 
 
     noisySpectrum = spectra(:,index);
+
     for i = 1:k
         
         noise = rand()*0.2+0.9;
