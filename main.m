@@ -8,14 +8,16 @@ extendedSpectra = extendMasters(spectra, numCopies);
 
 noisedCopies = createCopies(spectra, numCopies);
 
-plotSpectraAgainstCopies(spectra, noisedCopies, 120, numCopies);
+%plotSpectraAgainstCopies(spectra, noisedCopies, 120, numCopies);
 
-%distances = createDistances(extendedSpectra, noisedCopies, numCopies);
+distances = createDistances(extendedSpectra, noisedCopies, numCopies);
 
 
 
-%featuresMaster = computeFeatures(extendedSpectra, k, numCopies);
-%featuresCopies = computeFeatures(noisedCopies, k, numCopies);
+featuresMaster = computeFeatures(extendedSpectra, k, numCopies);
+featuresCopies = computeFeatures(noisedCopies, k, numCopies);
+
+%plotSpectraAgainstFeatures(spectra, featuresMaster, 1);
 
 %features = zeros(k*10, 1269*numCopies);
 %features(1:(k*5), :) = featuresMaster;

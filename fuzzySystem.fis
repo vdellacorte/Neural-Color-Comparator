@@ -1,0 +1,41 @@
+[System]
+Name='fuzzySystem'
+Type='mamdani'
+Version=2.0
+NumInputs=4
+NumOutputs=1
+NumRules=0
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='L*'
+Range=[0 100]
+NumMFs=1
+MF1='low-light':'gaussmf',[16.99 -4.441e-16]
+
+[Input2]
+Name='C*'
+Range=[0 100]
+NumMFs=0
+
+[Input3]
+Name='h*'
+Range=[0 360]
+NumMFs=0
+
+[Input4]
+Name='deltaE'
+Range=[0 10]
+NumMFs=0
+
+[Output1]
+Name='correctedDeltaE'
+Range=[0 10]
+NumMFs=0
+
+
+[Rules]
