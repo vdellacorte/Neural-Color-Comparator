@@ -1,6 +1,7 @@
 function [features] = computeFeatures(extendedSpectra, k, numCopies)
 
-featureNames = {'mean', 'var', 'median', 'mode', 'skewness'};
+%featureNames = {'mean', 'var', 'median', 'mode', 'skewness'};
+featureNames = {'mean', 'var'};
 numFeatures = size(featureNames);
 features = zeros(k*numFeatures(2), 1269*numCopies);
 

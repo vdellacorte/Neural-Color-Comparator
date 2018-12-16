@@ -4,7 +4,7 @@ Type='mamdani'
 Version=2.0
 NumInputs=4
 NumOutputs=1
-NumRules=0
+NumRules=18
 AndMethod='min'
 OrMethod='max'
 ImpMethod='min'
@@ -14,28 +14,71 @@ DefuzzMethod='centroid'
 [Input1]
 Name='L*'
 Range=[0 100]
-NumMFs=1
-MF1='low-light':'gaussmf',[16.99 -4.441e-16]
+NumMFs=2
+MF1='dark':'gaussmf',[27 0]
+MF2='bright':'gaussmf',[27 100]
 
 [Input2]
 Name='C*'
 Range=[0 100]
-NumMFs=0
+NumMFs=2
+MF1='unsaturated':'sigmf',[-0.1 30]
+MF2='saturated':'sigmf',[0.1 70]
 
 [Input3]
 Name='h*'
 Range=[0 360]
-NumMFs=0
+NumMFs=8
+MF1='red':'trimf',[315 360 405]
+MF2='yellow':'trimf',[45 90 135]
+MF3='green':'trimf',[135 180 225]
+MF4='blue':'trimf',[225 270 315]
+MF5='orange':'trimf',[0 45 90]
+MF6='grellow':'trimf',[90 135 180]
+MF7='cyan':'trimf',[180 225 270]
+MF8='violet':'trimf',[270 315 360]
 
 [Input4]
 Name='deltaE'
 Range=[0 10]
-NumMFs=0
+NumMFs=5
+MF1='equal':'trimf',[0 0 1]
+MF2='exp':'trimf',[0.5 1 2]
+MF3='unexp':'trimf',[1.5 2.75 3.5]
+MF4='clear':'trimf',[3 4 5]
+MF5='different':'trimf',[5 10 15]
 
 [Output1]
 Name='correctedDeltaE'
 Range=[0 10]
-NumMFs=0
+NumMFs=5
+MF1='equal':'trimf',[0 0 1]
+MF2='exp':'trimf',[0.5 1 2]
+MF3='unexp':'trimf',[1.5 2.75 3.5]
+MF4='clear':'trimf',[3 4 5]
+MF5='different':'trimf',[5 10 15]
 
 
 [Rules]
+1 0 0 0, 1 (1) : 1
+
+-1 1 0 2, 1 (1) : 1
+-1 1 0 3, 2 (1) : 1
+-1 1 0 4, 3 (1) : 1
+-1 1 0 5, 4 (1) : 1
+
+-1 2 4 2, 1 (1) : 1
+-1 2 4 3, 2 (1) : 1
+-1 2 4 4, 3 (1) : 1
+-1 2 4 5, 4 (1) : 1 
+
+-1 2 8 2, 1 (1) : 1
+-1 2 8 3, 2 (1) : 1
+-1 2 8 4, 3 (1) : 1
+-1 2 8 5, 4 (1) : 1 
+
+0 0 0 1, 1 (1) : 1
+0 0 0 2, 2 (1) : 1
+0 0 0 3, 3 (1) : 1
+0 0 0 4, 4 (1) : 1
+0 0 0 5, 5 (1) : 1
